@@ -16,9 +16,28 @@ export default function Home() {
 					have left over ingredients again
 				</h1>
 			</div>
+			<div className="grid grid-cols-3 mx-20">
+				<div className="max-w-2xl">
+					<h1 className="col-span-2 items-center text-center text-3xl font-bold font-bitter border-b-2 border-black">
+						Who we are:
+					</h1>
+					<p className="col-span-2 text-2xl font-bitter">
+						We are CookSuccess, and we aim to save on grocery bills by making
+						sure that everything in your pantry finds its place into a dish.
+						Just input what you have, and we will make suggestions for recipes
+						including the ingredients that you give us. Get started now, or make
+						an account to start saving recipes to your cart for an easy-to-use
+						shopping list.
+					</p>
+				</div>
+				<button className="border-4 border-black max-w-xl bg-amber-500 text-4xl mx-10 font-extrabold">
+					Get started!
+				</button>
+			</div>
 			<div className="flex text-5xl font-bitter border-2 bg-blue-200 font-semibold border-black max-w-3xl rounded text-center justify-center items-center  mx-auto sm:mt-8">
 				<h2>Ingredient of the Week!</h2>
 			</div>
+
 			<div className="bg-green-200 border-4 border-black mt-3">
 				<div className="flex text-6xl font-semibold justify-center mt-3">
 					<u>
@@ -32,11 +51,10 @@ export default function Home() {
 		</div>
 	);
 }
-
 function Food({ foodObject }: any) {
 	return (
 		<div className="flex flex-col text-center mb-8 bg-blue-200">
-			<div className="border-2 border-black">
+			<button className="border-2 border-black">
 				<p className="border-b-2 text-xl font-bitter border-black">
 					{foodObject.name}
 				</p>
@@ -48,7 +66,7 @@ function Food({ foodObject }: any) {
 						width={200}
 					/>
 				</div>
-			</div>
+			</button>
 		</div>
 	);
 }
