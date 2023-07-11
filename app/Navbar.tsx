@@ -6,7 +6,7 @@ export function Navbar() {
 			<div className="">
 				<NavButton>Home</NavButton>
 			</div>
-			<h1 className=" items-center text-3xl mx-auto font-extrabold">
+			<h1 className=" items-center text-3xl mx-auto font-pacifico font-extrabold">
 				CookSuccess
 			</h1>
 			<div className=" flex justify-end gap-2">
