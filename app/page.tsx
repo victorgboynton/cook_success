@@ -16,10 +16,10 @@ export default function Home() {
 					have left over ingredients again
 				</h1>
 			</div>
-			<div className="flex flex-col">
-				<div className="grid grid-cols-3 mx-20 items-center">
+			<div className="flex">
+				<div className=" mx-20 items-center">
 					<div className="col-span-2 max-w-4xl">
-						<h1 className=" items-center text-center text-3xl font-bold font-bitter border-b-2 border-black">
+						<h1 className=" text-center text-3xl font-bold font-bitter border-b-2 border-black">
 							Who we are:
 						</h1>
 						<p className="text-2xl font-bitter">
@@ -36,9 +36,14 @@ export default function Home() {
 							</button>
 						</div>
 					</div>
-					<div className="relative border border-black rounded aspect-video">
-						<Image src="/peopleCooking.png" alt="people cooking" fill />
-					</div>
+				</div>
+				<div className="relative border border-black rounded aspect-video">
+					<Image
+						src="/peopleCooking.png"
+						alt="people cooking"
+						width={614}
+						height={100}
+					/>
 				</div>
 			</div>
 			<div className="flex text-5xl font-bitter border-2  font-semibold border-black max-w-3xl rounded text-center justify-center items-center  mx-auto sm:mt-8">
