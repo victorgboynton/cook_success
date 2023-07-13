@@ -2,7 +2,7 @@ import { NavButton } from "./NavButton";
 
 export function Navbar() {
   return (
-    <div className="grid grid-cols-3 px-2 items-center bg-green-300">
+    <div className="grid grid-cols-3 px-2 items-center bg-emerald-300">
       <div className="">
         <NavButton linkTarget="/">Home</NavButton>
       </div>
