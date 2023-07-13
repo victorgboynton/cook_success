@@ -9,7 +9,7 @@ const Foods = [
 export default function Home() {
   return (
     <div className="">
-      <div className="flex text-6xl bg-amber-200 font-bitter font-bold text-center lg:mt-10 justify-center items-center mx-auto p-8 ">
+      <div className="flex text-6xl bg-slate-100 font-bitter font-bold text-center lg:mt-10 justify-center items-center mx-auto p-8 ">
         <h1>
           <i>
             <u>Never</u>
@@ -17,24 +17,34 @@ export default function Home() {
           have left over ingredients again
         </h1>
       </div>
-      <div className="grid grid-cols-3 mx-20">
-        <div className="col-span-2 max-w-3xl">
-          <h1 className=" items-center text-center text-3xl font-bold font-bitter border-b-2 border-black">
-            Who we are:
-          </h1>
-          <p className="text-2xl font-bitter">
-            We are CookSuccess, and we aim to save on grocery bills by making
-            sure that everything in your pantry finds its place into a dish.
-            Just input what you have, and we will make suggestions for recipes
-            including the ingredients that you give us. Get started now, or make
-            an account to start saving recipes to your cart for an easy-to-use
-            shopping list.
-          </p>
+      <div className="flex">
+        <div className=" mx-20 items-center">
+          <div className="col-span-2 max-w-4xl">
+            <h1 className=" text-center text-3xl font-bold font-bitter border-b-2 border-black">
+              Who we are:
+            </h1>
+            <p className="text-2xl font-bitter">
+              We are CookSuccess, and we aim to save on grocery bills by making
+              sure that everything in your pantry finds its place into a dish.
+              Just tell us what you have, and we will make suggestions for
+              recipes including the ingredients that you give us. Get started
+              now, or make an account to start saving recipes to your cart for
+              an easy-to-use shopping list.
+            </p>
+            <div className="flex justify-center items-center h-[30%]">
+              <button className=" bg-green-600/75 text-4xl  border-green-700  border-4 font-extrabold">
+                <Link href="/RecipePicker">Get started!</Link>
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="lg:mx-10 h-[30%]">
-          <button className=" bg-amber-200 text-4xl    border-4 font-extrabold">
-            <Link href="/RecipePicker">Get started!</Link>
-          </button>
+        <div className="relative border border-black rounded aspect-video">
+          <Image
+            src="/peopleCooking.png"
+            alt="people cooking"
+            width={614}
+            height={100}
+          />
         </div>
       </div>
       <div className="flex text-5xl font-bitter border-2  font-semibold border-black max-w-3xl rounded text-center justify-center items-center  mx-auto sm:mt-8">
