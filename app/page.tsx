@@ -29,7 +29,7 @@ export default function Home() {
               an easy-to-use shopping list.
             </p>
             <div className="flex justify-center items-center h-[30%]">
-              <button className=" bg-emerald-600/75 text-4xl  border-green-700  border-4 font-extrabold">
+              <button className=" bg-emerald-600/75 text-4xl  border-green-700  mt-4 border-4 font-extrabold">
                 <Link href="/RecipePicker">Get started!</Link>
               </button>
             </div>
