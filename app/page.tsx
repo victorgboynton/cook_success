@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 const Foods = [
   { id: "1", name: "Artichoke dip" },
   { id: "2", name: "Spinach fettuccini" },
@@ -32,7 +33,7 @@ export default function Home() {
         </div>
         <div className="lg:mx-10 h-[30%]">
           <button className=" bg-amber-200 text-4xl    border-4 font-extrabold">
-            Get started!
+            <Link href="/RecipePicker">Get started!</Link>
           </button>
         </div>
       </div>
