@@ -17,7 +17,7 @@ export default function RecipePicker() {
 							<span>Are you willing to go shopping?</span>
 							<input type="checkbox" />
 						</div>
-						<SearchIngredient />
+						<SearchIngredient>Search</SearchIngredient>
 					</form>
 				</div>
 			</div>

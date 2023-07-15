@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { ingredients } from "./RecipePicker/ingredients";
 
-export function SearchIngredient() {
+export function SearchIngredient({ children }: any) {
 	const [value, setValue] = useState("");
 
 	const onChange = (e: any) => {
@@ -11,6 +11,7 @@ export function SearchIngredient() {
 	};
 
 	const onSearch = (e: any) => {
+		e.preventDefault();
 		console.log("search", e);
 	};
 
@@ -26,7 +27,7 @@ export function SearchIngredient() {
 					onClick={() => onSearch(value)}
 					className="bg-emerald-700 p-1 rounded"
 				>
-					Search
+					{children}
 				</button>
 			</div>
 			<div className="flex flex-col max-w-xs bg-white">
@@ -36,8 +37,10 @@ export function SearchIngredient() {
 						const lowerName = item.toLowerCase();
 						return searchTerm && lowerName.startsWith(searchTerm);
 					})
-					.map((ingredients) => (
-						<div key="ingredients">{ingredients}</div>
+					.map((ingredients, index) => (
+						<div className="hover:cursor-pointer hover:bg-blue-200" key={index}>
+							{ingredients}
+						</div>
 					))}
 			</div>
 		</div>
