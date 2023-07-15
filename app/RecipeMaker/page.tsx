@@ -44,8 +44,8 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
 	};
 
 	const onAdd = (e: any) => {
-		e.preventDefault();
-		setIngredient([...ingredient, e.target.value]);
+		setIngredient((prevIngredient: any) => [...prevIngredient, value]);
+		console.log(value);
 	};
 
 	return (
@@ -56,12 +56,12 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
 					placeholder="Enter ingredient here"
 					onChange={onChange}
 				/>
-				<button
-					onClick={() => onAdd(value)}
-					className="bg-emerald-700 p-1 rounded"
+				<span
+					onClick={() => onAdd([value, console.log(value)])}
+					className="bg-emerald-700 p-1 rounded hover:cursor-pointer"
 				>
 					{children}
-				</button>
+				</span>
 			</div>
 			<div className="flex flex-col max-w-xs bg-white">
 				{ingredients
