@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Run } from "../mongo";
-import { SearchIngredient } from "../SearchIngredient";
+
 import { ingredients } from "../RecipePicker/ingredients";
 export default function RecipeMaker() {
 	const [name, setName] = useState("");
@@ -12,7 +12,7 @@ export default function RecipeMaker() {
 
 	return (
 		<div className="bg-gray-500">
-			<div>
+			<div className="z-1 bg-cover relative">
 				<form>
 					<input
 						type="text"
@@ -28,9 +28,19 @@ export default function RecipeMaker() {
 							setInstructions(e.target.value);
 						}}
 					/>
-					<AddIngredient ingredient={ingredient} setIngredient={setIngredient}>
-						Add
-					</AddIngredient>
+					<div className="">
+						<AddIngredient
+							ingredient={ingredient}
+							setIngredient={setIngredient}
+						>
+							Add
+						</AddIngredient>
+					</div>
+					<div>
+						{ingredient.map((ingredient, index) => (
+							<div key={index}>{ingredient}</div>
+						))}
+					</div>
 				</form>
 			</div>
 		</div>
@@ -44,8 +54,8 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
 	};
 
 	const onAdd = (e: any) => {
-		setIngredient((prevIngredient: any) => [...prevIngredient, value]);
-		console.log(value);
+		setIngredient((ingredient: any) => [...ingredient, e]);
+		console.log(ingredient);
 	};
 
 	return (
@@ -57,13 +67,13 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
 					onChange={onChange}
 				/>
 				<span
-					onClick={() => onAdd([value, console.log(value)])}
+					onClick={() => onAdd([value])}
 					className="bg-emerald-700 p-1 rounded hover:cursor-pointer"
 				>
 					{children}
 				</span>
 			</div>
-			<div className="flex flex-col max-w-xs bg-white">
+			<div className="flex flex-col  absolute w-fit bg-white">
 				{ingredients
 					.filter((item) => {
 						const searchTerm = value.toLowerCase();
@@ -71,7 +81,11 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
 						return searchTerm && lowerName.startsWith(searchTerm);
 					})
 					.map((ingredients, index) => (
-						<div className="hover:cursor-pointer hover:bg-blue-200" key={index}>
+						<div
+							className="hover:cursor-pointer z-10 w-56 hover:bg-blue-200"
+							key={index}
+							onClick={onAdd}
+						>
 							{ingredients}
 						</div>
 					))}
