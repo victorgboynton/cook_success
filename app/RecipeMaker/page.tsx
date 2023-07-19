@@ -41,10 +41,16 @@ export default function RecipeMaker() {
 							<div key={index}>{ingredient}</div>
 						))}
 					</div>
+					<button onClick={Run({ name, instructions, ingredients, author, picture })}
 				</form>
 			</div>
 		</div>
+		
 	);
+}
+
+function handleRun({props}:any) {
+	Run({ props.name, props.instructions, ingredients, author, picture });
 }
 function AddIngredient({ children, ingredient, setIngredient }: any) {
 	const [value, setValue] = useState("");
