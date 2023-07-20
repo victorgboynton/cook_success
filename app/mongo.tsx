@@ -1,4 +1,5 @@
 import { MongoClient } from "mongodb";
+import { Instrument_Sans } from "next/font/google";
 // Replace the uri string with your MongoDB deployment's connection string.
 const uri =
 	"mongodb+srv://vjboynton:bearandbear12@cluster0.jglicws.mongodb.net/?retryWrites=true&w=majority";
