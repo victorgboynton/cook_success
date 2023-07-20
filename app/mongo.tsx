@@ -10,7 +10,7 @@ interface Recipe {
 	author: string;
 	picture: string;
 }
-export async function Run({
+export default async function Run({
 	name,
 	instructions,
 	ingredients,
