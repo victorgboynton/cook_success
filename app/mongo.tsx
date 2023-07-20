@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 // Replace the uri string with your MongoDB deployment's connection string.
 const uri =
-	"mongodb+srv://vjboynton:bearandbear12@cluster0.jglicws.mongodb.net/";
+	"mongodb+srv://vjboynton:bearandbear12@cluster0.jglicws.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri);
 interface Recipe {
 	name: string;
@@ -18,6 +18,7 @@ export async function Run({
 	picture,
 }: any) {
 	try {
+		await client.connect();
 		const test = client.db("test");
 		// Specifying a Schema is optional, but it enables type hints on
 		// finds and inserts
