@@ -46,7 +46,13 @@ export default function RecipeMaker() {
               ))}
             </div>
           </div>
-          <button onClick={() => Run()}>Submit</button>
+          <button
+            onClick={() =>
+              handleSubmit({ name, instructions, ingredients, author, picture })
+            }
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>
@@ -101,6 +107,29 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
   );
 }
 
-async function onAddRecipe() {
-  const get = 12;
+function handleSubmit({
+  name,
+  instructions,
+  ingredients,
+  author,
+  picture,
+}: any) {
+  fetch("/api/createUser", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: { name },
+      instructions: { instructions },
+      ingredients: { ingredients },
+      author: { author },
+      pictures: { picture },
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 }
