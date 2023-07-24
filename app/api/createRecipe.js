@@ -1,6 +1,6 @@
 import connectToDatabase from "@/mongodb";
 
-export default async (req, res) => {
+export default async function CreateRecipe(req, res) {
   if (req.method === "POST") {
     const { db } = await connectToDatabase();
 
@@ -12,7 +12,8 @@ export default async (req, res) => {
       pictures: req.body.pictures,
     };
 
-    const result = await db.collection("recipes").insertOne(recipe);
+    const result = await db.collection("Recipes").insertOne(recipe);
+    console.log("Added")
 
     res.json(result);
   } else {

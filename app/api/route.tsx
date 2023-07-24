@@ -27,7 +27,7 @@ export default async function CreateRecipe(req: Request, res: Response) {
 		);
 		const db = client.db();
 		const test = db.collection("test");
-		const result = await test.insertOne<Recipe>(data);
+		const result = await test.insertOne(data);
 		console.log(result);
 		client.close();
 	}
