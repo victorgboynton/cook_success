@@ -1,4 +1,4 @@
-import connectToDatabase from "@/mongodb";
+import connectToDatabase from "@/mongodbs";
 
 export async function POST(req, res) {
   if (req.method === "POST") {
@@ -15,7 +15,7 @@ export async function POST(req, res) {
     const result = await db.collection("Recipes").insertOne(recipe);
     console.log("Added");
 
-    res.json(result);
+    //res.json(result);
   } else {
     res.status(400).send("Only POST requests are excepted");
   }

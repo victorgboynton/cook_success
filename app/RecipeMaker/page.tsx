@@ -7,8 +7,8 @@ export default function RecipeMaker() {
   const [name, setName] = useState("");
   const [instructions, setInstructions] = useState("");
   const [ingredient, setIngredient] = useState([]);
-  const [author, setAuthor] = useState("");
-  const [picture, setPicture] = useState("");
+  const [author, setAuthor] = useState("Me");
+  const [picture, setPicture] = useState("Me");
 
   return (
     <div className="bg-gray-500">
@@ -116,7 +116,7 @@ function handleSubmit(
   { name, instructions, ingredients, author, picture }: any
 ) {
   console.log("I submitted");
-  e.preventDefault();
+  //e.preventDefault();
   fetch("./api/CreateRecipe", {
     method: "POST",
     headers: {
