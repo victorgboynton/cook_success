@@ -1,20 +1,20 @@
-import { MongoClient } from 'mongodb'
+import { MongoClient } from "mongodb";
 
 if (!process.env.MONGODB_URI) {
-  throw new Error('Invalid/Missing environment variable: "MONGODB_URI"')
+  throw new Error('Invalid/Missing environment variable: "MONGODB_URI"');
 }
 
 const { MONGODB_URI, MONGODB_DB } = process.env;
 
 if (!MONGODB_URI) {
   throw new Error(
-    'Please define the MONGODB_URI environment variable inside .env.local'
+    "Please define the MONGODB_URI environment variable inside .env.local"
   );
 }
 
 if (!MONGODB_DB) {
   throw new Error(
-    'Please define the MONGODB_DB environment variable inside .env.local'
+    "Please define the MONGODB_DB environment variable inside .env.local"
   );
 }
 
@@ -43,6 +43,7 @@ async function connectToDatabase() {
     });
   }
   cached.conn = await cached.promise;
+  console.log("working");
   return cached.conn;
 }
 
