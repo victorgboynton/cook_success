@@ -45,7 +45,7 @@ export default function RecipeMaker() {
           </div>
           <button
             className=""
-            onSubmit={(e) =>
+            onClick={(e) =>
               handleSubmit(e, {
                 name,
                 instructions,
@@ -115,8 +115,9 @@ function handleSubmit(
   e: any,
   { name, instructions, ingredients, author, picture }: any
 ) {
+  console.log("I submitted");
   e.preventDefault();
-  fetch("./api/createRecipe.js", {
+  fetch("./api/CreateRecipe", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
