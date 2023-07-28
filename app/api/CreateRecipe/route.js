@@ -5,7 +5,10 @@ export async function POST(req, res) {
   if (req.method === "POST") {
     const { db } = await connectToDatabase();
 
-    const { name, instructions, ingredients, author, pictures } = req.body;
+    const body = await req.json();
+    console.log(body);
+
+    const { name, instructions, ingredients, author, pictures } = body;
     /*   name: "test",
       instructions: req.body.instructions,
       ingredients: req.body.ingredients,
@@ -17,7 +20,6 @@ export async function POST(req, res) {
     const result = await db
       .collection("Recipes")
       .insertOne({ name, instructions, ingredients, author, pictures });
-    console.log(req.body.name + "Fuck me man");
 
     return NextResponse.json(result);
   } else {

@@ -2,7 +2,7 @@
 
 import { StrictMode, useRef, useState } from "react";
 
-import { ingredients } from "../RecipePicker/ingredients";
+import { ingredientsList } from "../RecipePicker/ingredientsList";
 export default function RecipeMaker() {
   const [name, setName] = useState("");
   const [instructions, setInstructions] = useState("");
@@ -59,7 +59,7 @@ export default function RecipeMaker() {
                   " picture = " +
                   picture
               );
-              handleSubmit(e, name, instructions, ingredients, author, picture);
+              handleSubmit(e, name, instructions, ingredient, author, picture);
             }}
           >
             Submit
@@ -98,19 +98,19 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
         </span>
       </div>
       <div className="flex flex-col  absolute w-fit bg-white">
-        {ingredients
+        {ingredientsList
           .filter((item) => {
             const searchTerm = value.toLowerCase();
             const lowerName = item.toLowerCase();
             return searchTerm && lowerName.startsWith(searchTerm);
           })
-          .map((ingredients, index) => (
+          .map((ingredientsList, index) => (
             <div
               className="hover:cursor-pointer z-10 w-56 hover:bg-blue-200"
               key={index}
               onClick={onAdd}
             >
-              {ingredients}
+              {ingredientsList}
             </div>
           ))}
       </div>
@@ -122,12 +122,10 @@ async function handleSubmit(
   e: any,
   name: any,
   instructions: any,
-  ingredients: any,
+  ingredient: any,
   author: any,
   picture: any
 ) {
-  console.log(name);
-  console.log("I submitted");
   //const newRecipe = { name, instructions, ingredients, author, picture };
   e.preventDefault();
   return await fetch("/api/CreateRecipe", {
@@ -138,7 +136,7 @@ async function handleSubmit(
     body: JSON.stringify({
       name: name,
       instructions: instructions,
-      ingredients: ingredients,
+      ingredients: ingredient,
       author: author,
       picture: picture,
     }),
