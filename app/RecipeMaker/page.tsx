@@ -43,17 +43,24 @@ export default function RecipeMaker() {
               ))}
             </div>
           </div>
+          <div>{name}</div>
           <button
             className=""
-            onClick={(e) =>
-              handleSubmit(e, {
-                name,
-                instructions,
-                ingredients,
-                author,
-                picture,
-              })
-            }
+            onClick={(e) => {
+              console.log(
+                "name = " +
+                  name +
+                  " instructions = " +
+                  instructions +
+                  " ingredient = " +
+                  ingredient +
+                  " author = " +
+                  author +
+                  " picture = " +
+                  picture
+              );
+              handleSubmit(e, name, instructions, ingredients, author, picture);
+            }}
           >
             Submit
           </button>
@@ -111,23 +118,29 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
   );
 }
 
-function handleSubmit(
+async function handleSubmit(
   e: any,
-  { name, instructions, ingredients, author, picture }: any
+  name: any,
+  instructions: any,
+  ingredients: any,
+  author: any,
+  picture: any
 ) {
+  console.log(name);
   console.log("I submitted");
-  //e.preventDefault();
-  fetch("./api/CreateRecipe", {
+  //const newRecipe = { name, instructions, ingredients, author, picture };
+  e.preventDefault();
+  return await fetch("/api/CreateRecipe", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      name: { name },
-      instructions: { instructions },
-      ingredients: { ingredients },
-      author: { author },
-      pictures: { picture },
+      name: name,
+      instructions: instructions,
+      ingredients: ingredients,
+      author: author,
+      picture: picture,
     }),
   })
     .then((response) => response.json())
