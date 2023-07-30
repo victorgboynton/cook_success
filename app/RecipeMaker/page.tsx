@@ -37,6 +37,7 @@ export default function RecipeMaker() {
 								Add
 							</AddIngredient>
 						</div>
+						{/* Provides a list of the currently selected ingredients*/}
 						<div className="bg-white overflow-auto max-h-40">
 							{ingredient.map((ingredient, index) => (
 								<div key={index}>{ingredient}</div>
@@ -44,6 +45,7 @@ export default function RecipeMaker() {
 						</div>
 					</div>
 					<div>{name}</div>
+					{/* Sends the data to the database*/}
 					<button
 						className=""
 						onClick={(e) => {
