@@ -72,6 +72,7 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
 	return (
 		<div>
 			<div>
+				{/*You Input field adds stuff*/}
 				<input
 					type="text"
 					placeholder="Enter ingredient here"
