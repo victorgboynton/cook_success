@@ -88,6 +88,7 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
 				</span>
 			</div>
 			<div className="flex flex-col  absolute w-fit bg-white">
+				{/*This is an auto-gen field for ingredient names*/}
 				{ingredientsList
 					.filter((item) => {
 						const searchTerm = value.toLowerCase();
