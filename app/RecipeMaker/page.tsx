@@ -71,12 +71,19 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
     setIngredient((ingredient: any) => [...ingredient, e]);
   };
 
+  {
+    /*const ClearEverything = (
+
+  )*/
+  }
+
   return (
     <div>
       <div>
         {/*Your Input field adds stuff*/}
         <input
           type="text"
+          name="ingredBox"
           placeholder="Enter ingredient here"
           onChange={onChange}
         />
@@ -99,7 +106,7 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
             <div
               className="hover:cursor-pointer z-10 w-56 hover:bg-blue-200"
               key={index}
-              onClick={onAdd}
+              onClick={() => onAdd(ingredientsList)}
             >
               {ingredientsList}
             </div>
