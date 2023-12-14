@@ -18,14 +18,18 @@ export default function RecipeMaker() {
             type="text"
             placeholder="Recipe Name"
             onChange={(e) => {
-              setName(e.target.value);
+              {
+                setName(e.target.value);
+              }
             }}
           />
           <input
             type="text"
             placeholder="Instructions"
             onChange={(e) => {
-              setInstructions(e.target.value);
+              {
+                setInstructions(e.target.value);
+              }
             }}
           />
           <div className="flex flex-row">
@@ -50,6 +54,9 @@ export default function RecipeMaker() {
             className=""
             onClick={(e) => {
               handleSubmit(e, name, instructions, ingredient, author, picture);
+              setName("");
+              setIngredient([]);
+              setInstructions("");
             }}
           >
             Submit
@@ -69,6 +76,7 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
 
   const onAdd = (e: any) => {
     setIngredient((ingredient: any) => [...ingredient, e]);
+    setValue("");
   };
 
   {
@@ -84,6 +92,7 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
         <input
           type="text"
           name="ingredBox"
+          value={value}
           placeholder="Enter ingredient here"
           onChange={onChange}
         />
