@@ -17,6 +17,7 @@ export default function RecipeMaker() {
           <input
             type="text"
             placeholder="Recipe Name"
+            value={name}
             onChange={(e) => {
               {
                 setName(e.target.value);
@@ -26,6 +27,7 @@ export default function RecipeMaker() {
           <input
             type="text"
             placeholder="Instructions"
+            value={instructions}
             onChange={(e) => {
               {
                 setInstructions(e.target.value);
@@ -53,6 +55,7 @@ export default function RecipeMaker() {
           <button
             className=""
             onClick={(e) => {
+              e.preventDefault();
               handleSubmit(e, name, instructions, ingredient, author, picture);
               setName("");
               setIngredient([]);
