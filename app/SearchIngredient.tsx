@@ -12,6 +12,7 @@ export function SearchIngredient({ children }: any) {
 
   const onSearch = (searchValue: any) => {
     console.log("search", searchValue);
+    setValue("");
   };
 
   return (
@@ -20,10 +21,14 @@ export function SearchIngredient({ children }: any) {
         <input
           type="text"
           placeholder="Enter ingredient here"
+          value={value}
           onChange={onChange}
         />
         <button
-          onClick={() => onSearch(value)}
+          onClick={(e) => {
+            e.preventDefault;
+            onSearch(value);
+          }}
           className="bg-emerald-700 p-1 rounded"
         >
           {children}
@@ -37,7 +42,11 @@ export function SearchIngredient({ children }: any) {
             return searchTerm && lowerName.startsWith(searchTerm);
           })
           .map((ingredients, index) => (
-            <div className="hover:cursor-pointer hover:bg-blue-200" key={index}>
+            <div
+              className="hover:cursor-pointer hover:bg-blue-200"
+              key={index}
+              onClick={() => onSearch(ingredients)}
+            >
               {ingredients}
             </div>
           ))}

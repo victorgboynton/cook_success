@@ -14,10 +14,9 @@ export default function RecipeMaker() {
     <div className="bg-gray-500">
       <div className="z-1 bg-cover relative">
         <form>
-          <label id="NameLabel" htmlFor="recipeName">
-            Recipe Name:{" "}
-          </label>
+          <label htmlFor="recipeName">Recipe Name: </label>
           <input
+            id="recipeName"
             name="recipeName"
             type="text"
             placeholder="Recipe Name"
@@ -28,8 +27,10 @@ export default function RecipeMaker() {
               }
             }}
           />
-          <input
-            type="text"
+          <label htmlFor="instructionsLabel">Instructions: </label>
+          <textarea
+            id="instructionsLabel"
+            name="instructionsLabel"
             placeholder="Instructions"
             value={instructions}
             onChange={(e) => {
@@ -104,7 +105,7 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
           {children}
         </span>
       </div>
-      <div className="flex flex-col  absolute w-fit bg-white">
+      <div className="flex flex-col absolute w-fit bg-white">
         {/*This is an auto-gen field for ingredient names*/}
         {ingredientsList
           .filter((item) => {
