@@ -14,7 +14,11 @@ export default function RecipeMaker() {
     <div className="bg-gray-500">
       <div className="z-1 bg-cover relative">
         <form>
+          <label id="NameLabel" htmlFor="recipeName">
+            Recipe Name:{" "}
+          </label>
           <input
+            name="recipeName"
             type="text"
             placeholder="Recipe Name"
             value={name}
@@ -81,12 +85,6 @@ function AddIngredient({ children, ingredient, setIngredient }: any) {
     setIngredient((ingredient: any) => [...ingredient, e]);
     setValue("");
   };
-
-  {
-    /*const ClearEverything = (
-
-  )*/
-  }
 
   return (
     <div>
