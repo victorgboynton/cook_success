@@ -17,6 +17,7 @@ export default function RecipeMaker() {
           <label htmlFor="recipeName">Recipe Name: </label>
           <input
             id="recipeName"
+            required
             name="recipeName"
             type="text"
             placeholder="Recipe Name"
@@ -32,6 +33,7 @@ export default function RecipeMaker() {
             id="instructionsLabel"
             name="instructionsLabel"
             placeholder="Instructions"
+            required
             value={instructions}
             onChange={(e) => {
               {
